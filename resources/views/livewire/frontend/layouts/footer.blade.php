@@ -58,7 +58,7 @@
                                 <a href="compare.html" class="footer-menu_item">Compare</a>
                             </li>
                             <li>
-                                <a href="wishlist.html" class="footer-menu_item">My Wishlist</a>
+                                <a href="{{route('wish-list')}}" class="footer-menu_item">My Wishlist</a>
                             </li>
                         </ul>
                     </div>

@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('home');
 //});
 
+Route::fallback(function () {
+    return view('error404');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product-detail', [ProductDetailController::class, 'productDetail'])->name('product-detail');
 Route::get('/shopping-cart/id=1', [ShoppingCartController::class, 'shoppingCart'])->name('shopping-cart');

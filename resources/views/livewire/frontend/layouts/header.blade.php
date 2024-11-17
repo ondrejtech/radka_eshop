@@ -1,4 +1,11 @@
 <div>
+    @livewire ('frontend.mobile.mobile-menu')
+    @livewire('frontend.modal.login-modal')
+    @livewire('frontend.modal.shopping-cart')
+    @livewire('frontend.modal.canvas-search')
+    @livewire('frontend.toolbar.bottom-toolbar')
+    @livewire('frontend.toolbar.toolbar-shopmb')
+    @livewire('frontend.modal.filter-product')
     <div class="preload preload-container">
         <div class="preload-logo">
             <div class="spinner"></div>
@@ -621,7 +628,7 @@
                                                         <li><a href="my-account-orders-details.html" class="menu-link-text link text_black-2">My order details</a></li>
                                                         <li><a href="my-account-address.html" class="menu-link-text link text_black-2">My address</a></li>
                                                         <li><a href="my-account-edit.html" class="menu-link-text link text_black-2">My account details</a></li>
-                                                        <li><a href="my-account-wishlist.html" class="menu-link-text link text_black-2">My wishlist</a></li>
+                                                        <li><a href="my-account-{{route('wish-list')}}" class="menu-link-text link text_black-2">My wishlist</a></li>
                                                     </ul>
                                                 </div>
                                             </li>
