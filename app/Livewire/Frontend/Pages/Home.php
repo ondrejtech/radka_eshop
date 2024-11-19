@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Home extends Component
 {
+    public $products;
     public function mount()
     {
          $this->products = Product::limit(12)->get();
