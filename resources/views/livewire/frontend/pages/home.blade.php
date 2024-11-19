@@ -90,7 +90,7 @@
                         <div id="sale-products" class="collapse show">
                             <div class="widget-featured-products mb_36">
                                 <div class="featured-product-item">
-                                    <a href="{{route('product-detail')}}" class="card-product-wrapper">
+{{--                                    <a href="" class="card-product-wrapper">--}}
                                         <img class="lazyload img-product" data-src="{{asset('assets/images/products/img-feature-1.png')}}" alt="image-feature">
                                     </a>
                                     <div class="card-product-info">
@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
                                 <div class="featured-product-item">
-                                    <a href="{{route('product-detail')}}" class="card-product-wrapper">
+{{--                                    <a href="" class="card-product-wrapper">--}}
                                         <img class="lazyload img-product" data-src="{{asset('assets/images/products/img-feature-2.png')}}" alt="image-feature">
                                     </a>
                                     <div class="card-product-info">
@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="featured-product-item">
-                                    <a href="{{route('product-detail')}}" class="card-product-wrapper">
+{{--                                    <a href="" class="card-product-wrapper">--}}
                                         <img class="lazyload img-product" data-src="{{(asset('assets/images/products/img-feature-3.png'))}}" alt="image-feature">
                                     </a>
                                     <div class="card-product-info">
@@ -169,22 +169,22 @@
                         </div>
                         <div id="gallery" class="collapse show">
                             <div class="grid-3 gap-4 mb_36">
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-1.jpg')}}" alt="img-gallery">
                                 </a>
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-2.jpg')}}" alt="img-gallery">
                                 </a>
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-3.jpg')}}" src="{{asset('assets/images/shop/gallery/gallery-3.jpg')}}" alt="img-gallery">
                                 </a>
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-4.jpg')}}" alt="img-gallery">
                                 </a>
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-5.jpg')}}" src="{{asset('assetsimages/shop/gallery/gallery-5.jpg')}}" alt="img-gallery">
                                 </a>
-                                <a href="{{route('product-detail')}}" class="item-gallery">
+{{--                                <a href="" class="item-gallery">--}}
                                     <img class="lazyload" data-src="{{asset('assets/images/shop/gallery/gallery-6.jpg')}}" src="{{asset('assetsimages/shop/gallery/gallery-6.jpg')}}" alt="img-gallery">
                                 </a>
 
@@ -213,8 +213,8 @@
                             <!-- card product 1 -->
                             <div class="card-product">
                                 <div class="card-product-wrapper">
-                                    <a href="{{route('product-detail')}}" class="product-img">
-                                        <img class=" img-product" data-src="{{$product->image}}}" src="{{$product->images}}" alt="image-product">
+{{--                                    <a href="" class="product-img">--}}
+                                        <img class=" img-product" data-src="{{$product->images}}" src="{{$product->images}}" alt="image-product">
                                         <img class="img-hover" data-src="{{$product->images}}" src="{{$product->images}}" alt="image-product">
                                     </a>
                                     <div class="list-product-btn absolute-2">
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                                 <div class="card-product-info">
-                                    <a href="{{route('product-detail')}}" class="title link">{{$product->name}}</a>
+                                    <a href="" class="title link">{{$product->name}}</a>
                                     <span class="price">$16.95</span>
                                     <ul class="list-color-product">
                                         <li class="list-color-item color-swatch active">
@@ -250,7 +250,7 @@
                                         <li class="list-color-item color-swatch">
                                             <span class="tooltip">Black</span>
                                             <span class="swatch-value bg_dark"></span>
-                                            <img class="lazyload" data-src="{{asset('assets/images/products/black-1.jpg')}}" src="{{asset('assetsimages/products/black-1.jpg')}}" alt="image-product">
+                                            <img class="lazyload" data-src="{{asset('assets/images/products/black-1.jpg')}}" src="{{asset('assets/images/products/black-1.jpg')}}" alt="image-product">
                                         </li>
                                         <li class="list-color-item color-swatch">
                                             <span class="tooltip">White</span>
