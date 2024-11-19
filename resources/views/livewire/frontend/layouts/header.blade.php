@@ -6,11 +6,11 @@
     @livewire('frontend.toolbar.bottom-toolbar')
     @livewire('frontend.toolbar.toolbar-shopmb')
     @livewire('frontend.modal.filter-product')
-    <div class="preload preload-container">
-        <div class="preload-logo">
-            <div class="spinner"></div>
-        </div>
-    </div>
+{{--    <div class="preload preload-container">--}}
+{{--        <div class="preload-logo">--}}
+{{--            <div class="spinner"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- /preload -->
     <div id="wrapper">
         <!-- top-bar -->
