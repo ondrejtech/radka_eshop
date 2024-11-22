@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShoppingCartController;
 use App\Http\Controllers\Frontend\WishListController;
@@ -19,11 +20,5 @@ Route::get('/shopping-cart/id=1', [ShoppingCartController::class, 'shoppingCart'
 Route::get('/wish-list', [WishListController::class, 'wishList'])->name('wish-list');
 
 
-route::get('scan', function(){
-    $path = public_path('assets/fonts');
-    $jsFiles = array_filter(scandir($path), function($file) {
-        return pathinfo($file, PATHINFO_EXTENSION) === 'css';
-    });
-
-    dd($jsFiles);
-})->name('scan');
+//Route::get('/xml', [\App\Http\Controllers\Test::class, 'xml']);
+Route::get('/image', [\App\Http\Controllers\ImageScrapeController::class, 'index']);

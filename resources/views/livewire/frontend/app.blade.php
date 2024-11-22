@@ -25,7 +25,7 @@
     <link href="{{ asset('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('assets/images/logo/favicon.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('assets/images/logo/favicon.png')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">
+{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{asset('assets/scss/_reset.scss')}}">
     <link rel="stylesheet" href="{{asset('assets/scss/_responsive.scss')}}">
     <link rel="stylesheet" href="{{asset('assets/scss/_sections.scss')}}">
@@ -50,11 +50,11 @@
     </footer>
 
     <!-- Scripts -->
-{{--    <script type="module" src="{{ asset('assets/js/jquery-3.6.2.min.js') }}"></script>--}}
+    <script type="module" src="{{ asset('assets/js/jquery-3.6.2.min.js') }}"></script>
     <!-- Add all other JS files similarly -->
     </body>
-{{--        <script type="module" src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>--}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script type="module" src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>--}}
         <script type="module" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/carousel.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/count-down.js') }}"></script>

@@ -2,11 +2,12 @@
 
 namespace App\Models\Frontend;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public $timestamps = false;
+    use hasFactory;
 
     protected $table = 'products';
 
@@ -102,6 +103,12 @@ class Product extends Model
         'apply_loyalty_discount',
         'apply_volume_discount',
         'apply_quantity_discount',
-        'apply_discount_coupon'
+        'apply_discount_coupon',
+        'image_name'
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductImages::class, 'product_id'); // 'product_id' je cizí klíč v tabulce product_images
+    }
 }
