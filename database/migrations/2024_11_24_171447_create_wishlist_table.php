@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('wishlist', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
             $table->string('name');
             $table->string('currency', 3)->default('CZK');
             $table->decimal('standard_price', 10, 2)->nullable();
@@ -28,6 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('whishlist');
     }
 };

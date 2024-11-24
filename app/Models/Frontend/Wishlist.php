@@ -4,9 +4,10 @@ namespace App\Models\Frontend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Product extends Model
+class Wishlist extends Model
 {
     use hasFactory;
 
@@ -108,13 +109,13 @@ class Product extends Model
         'image_name'
     ];
 
-    public function images()
+    public function product()
     {
-        return $this->hasMany(ProductImages::class, 'product_id'); // 'product_id' je cizí klíč v tabulce product_images
+        return $this->belongsTo(Wishlist::class);
     }
 
-    public function shoppingCart(): HasMany
+    public function image(): BelongsTo
     {
-        return $this->hasMany(ShoppingCartController::class, 'product_id');
+        return $this->belongsTo(ProductImages::class, 'product_id', 'product_id');
     }
 }

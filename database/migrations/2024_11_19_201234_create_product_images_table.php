@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('currency', 3)->default('CZK');
-            $table->decimal('standard_price', 10, 2)->nullable();
-            $table->integer('stock_amount')->default(0);
-            $table->string('image_name')->nullable();
+            $table->foreignId('product_id')->constrained('products', 'id')->onDelete('cascade');
+            $table->string('URL');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product_images');
     }
 };
