@@ -25,13 +25,13 @@
     <link href="{{ asset('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('assets/images/logo/favicon.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('assets/images/logo/favicon.png')}}">
-{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" rel="stylesheet">--}}
-    <link rel="stylesheet" href="{{asset('assets/scss/_reset.scss')}}">
-    <link rel="stylesheet" href="{{asset('assets/scss/_responsive.scss')}}">
-    <link rel="stylesheet" href="{{asset('assets/scss/_sections.scss')}}">
-    <link rel="stylesheet" href="{{asset('assets/scss/abstracts/_index.scss')}}">
-    <link rel="stylesheet" href="{{asset('assets/scss/abstracts/_mixin.scss')}}">
-    <link rel="stylesheet" href="{{asset('assets/scss/abstracts/_variable.scss')}}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"/>
 </head>
 
     <body class="preload-wrapper">
@@ -50,16 +50,19 @@
     </footer>
 
     <!-- Scripts -->
-    <script type="module" src="{{ asset('assets/js/jquery-3.6.2.min.js') }}"></script>
+{{--    <script type="module" src="{{ asset('assets/js/jquery-3.6.2.min.js') }}"></script>--}}
     <!-- Add all other JS files similarly -->
     </body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script type="module" src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
 {{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>--}}
         <script type="module" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/carousel.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/count-down.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/drift.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/image-compare-viewer.js') }}"></script>
+        <script type="module" src="{{ asset('assets/js/main.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/image-compare-viewer.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/jquery-validate.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/jquery.fancybox.js') }}"></script>
@@ -67,7 +70,6 @@
         <script type="module" src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/jqueryui.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/lazysize.min.js') }}"></script>
-        <script type="module" src="{{ asset('assets/js/main.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/model-viewer.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/multiple-modal.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/photoswipe-lightbox.esm.min.js') }}"></script>
@@ -78,5 +80,12 @@
         <script type="module" src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/wow.min.js') }}"></script>
         <script type="module" src="{{ asset('assets/js/zoom.js') }}"></script>
+<script>
+    window.addEventListener('message', event => {
+        console.log(event.detail[0].text);
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify(event.detail[0].text, event.detail[0].type);
+    });
+</script>
     @livewireScripts
 </html>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Frontend\Product;
+use App\Models\Frontend\Wishlist;
 use App\Models\Frontend\ProductImages;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -34,7 +34,7 @@ class ImageScrapeController extends Controller
                 // Uložíme obrázek na disk (do složky public/images)
                 Storage::disk('public')->put('images/pimpinela/' . $imageName, $imageContent);
 
-                Product::where('id', $url->product_id)->update(['image_name' => $url->product_id.$imageName]);
+                Wishlist::where('id', $url->product_id)->update(['image_name' => $url->product_id.$imageName]);
         }
     }
 }

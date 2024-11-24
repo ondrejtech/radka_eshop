@@ -4,6 +4,7 @@ namespace App\Models\Frontend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -110,5 +111,10 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany(ProductImages::class, 'product_id'); // 'product_id' je cizí klíč v tabulce product_images
+    }
+
+    public function shoppingCart(): HasMany
+    {
+        return $this->hasMany(ShoppingCartController::class, 'product_id');
     }
 }

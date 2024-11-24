@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Frontend\Product;
+use App\Models\Frontend\Wishlist;
 use App\Models\Frontend\ProductImages;
 use Illuminate\Database\Seeder;
 
@@ -22,49 +22,44 @@ class ProductSeeder extends Seeder
         if (isset($xml['SHOPITEM']) && count($xml['SHOPITEM']) > 0) {
             foreach ($xml['SHOPITEM'] as $key => $value) {
                 echo $value['NAME'] . '<br>';
-//                Product::create([
-//                    'id' => $value['@attributes']['id'] ?? null,
-//                    'name' => $value['NAME'],
-//                    'standard_price' => 100,
-//                    'currency' => 'CZK',
-//                    'created_at' => now(),
-//                    'updated_at' => now(),
-//                ]);
+                Wishlist::create([
+                    'id' => $value['@attributes']['id'] ?? null,
+                    'name' => $value['NAME'],
+                    'standard_price' => 100,
+                    'currency' => 'CZK',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
 
 
             }
         }
 
-//        if (isset($xml['SHOPITEM']) && count($xml['SHOPITEM']) > 0) {
-//            foreach ($xml['SHOPITEM'] as $key => $value) {
-//                $productId = $value['@attributes']['id'];
-////
-////                // Ověřte, zda produkt existuje
+        if (isset($xml['SHOPITEM']) && count($xml['SHOPITEM']) > 0) {
+            foreach ($xml['SHOPITEM'] as $key => $value) {
+                $productId = $value['@attributes']['id'];
 //
-////
-//                if (isset($value['IMAGES']['IMAGE'])) {
-//                    $imagesData = $value['IMAGES']['IMAGE'];
+//                // Ověřte, zda produkt existuje
+
 //
-//                    // Pokud je IMAGE string, převeďte ho na pole
-//                    if (is_string($imagesData)) {
-//                        $imagesData = [$imagesData];
-//                    }
-//
+                if (isset($value['IMAGES']['IMAGE'])) {
+                    $imagesData = $value['IMAGES']['IMAGE'];
+
+                    // Pokud je IMAGE string, převeďte ho na pole
+                    if (is_string($imagesData)) {
+                        $imagesData = [$imagesData];
+                    }
+
 //                    // Vytvoření seznamu obrázků
-//                    foreach ($imagesData as $imageURL) {
-//                        $images[] = [
-//                            'product_id' => $productId,
-//                            'URL' => $imageURL,
-//                            'created_at' => now(),
-//                            'updated_at' => now(),
-//                        ];
-//                        ProductImages::create([
-//                            'product_id' => $productId,
-//                            'URL' => $imageURL,
-//                        ]);
-//                    }
-//                }
-//            }
-//        }
+                    foreach ($imagesData as $imageURL) {
+
+                        ProductImages::create([
+                            'product_id' => $productId,
+                            'URL' => $imageURL,
+                        ]);
+                    }
+                }
+            }
+        }
     }
 }

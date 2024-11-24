@@ -3,6 +3,8 @@
 namespace App\Livewire\Frontend\Pages;
 
 use App\Models\Frontend\Product;
+use App\Models\Frontend\ProductImages;
+use App\Models\Frontend\Wishlist;
 use Livewire\Component;
 
 class Home extends Component

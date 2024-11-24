@@ -198,8 +198,8 @@
                             <div class="card-product">
                                 <div class="card-product-wrapper">
                                     <a href="{{ route('product-details', $product->id) }}" class="product-img">
-                                            <img class=" img-product" data-src="{{storage_path('app/public/images/pimpinela/'.$product->image_name)}}" src="{{storage_path('app/public/images/pimpinela/'.$product->image_name)}}" alt="image-product">
-                                            <img class="img-hover" data-src="{{storage_path('app/public/images/pimpinela/'.$product->image_name)}}" src="{{storage_path('app/public/images/pimpinela/'.$product->image_name)}}" alt="image-product">
+                                            <img class=" img-product" data-src="{{ $product->images->first()->URL }}" src="{{ $product->images->first()->URL }}" alt="image-product">
+                                            <img class="img-hover" data-src="{{ $product->images->first()->URL }}" src="{{ $product->images->first()->URL }}" alt="image-product">
                                     </a>
                                     <div class="list-product-btn absolute-2">
                                         <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
