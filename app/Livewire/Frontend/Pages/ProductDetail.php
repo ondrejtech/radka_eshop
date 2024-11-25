@@ -77,46 +77,72 @@ class ProductDetail extends Component
                 ]);
             }
         }else{
-            $this->dispatch('message',[
-                'text' => 'Pro přidání zboží do košíku se musíte přihlásit',
-                'type' => 'error',
-                'status' => '404',
-            ]);
+            // open session with email
+            $cart = session()->get('cart', []);
+            $foundKey = null;
+            foreach ($cart as $key => $item) {
+                if ($item['product_id'] === $this->products->id) {
+                    $foundKey = $key;
+                    break;
+                }
+            }
+            if ($foundKey !== null) {
+                $cart[$foundKey]['name'] = $this->products->name;
+                $cart[$foundKey]['quantity'] += $this->quantity;
+                $cart[$foundKey]['total'] = $cart[$foundKey]['quantity'] * $this->products->standard_price;
+            } else {
+                // Pokud produkt neexistuje v košíku, přidejte nový
+                $cart[] = [
+                    'product_id' => $this->products->id,
+                    'name' => $this->products->name,
+                    'quantity' => $this->quantity,
+                    'price' => $this->products->standard_price,
+                    'total' => $this->quantity * $this->products->standard_price,
+                ];
+            }
 
-            return redirect('admin/login');
+            // Uložit aktualizovaný košík zpět do session
+            session()->put('cart', $cart);
+            $this->dispatch('message',[
+                'text' => 'Zboží bylo úspěšně přidáno do košíku',
+                'type' => 'success',
+                'status' => '200',
+            ]);
         }
     }
 
     public function addToWishList($product_id)
     {
-        if (auth()->check()) {
-            $wishList = WishList::where('product_id', $product_id)->where('user_id', auth()->id())->first();
-            if ($wishList) {
-                $this->dispatch('message',[
-                    'text' => 'Zboží již bylo přidáno do seznamu přání',
-                    'type' => 'error',
-                    'status' => '404',
-                ]);
-            } else {
-                WishList::create([
-                    'product_id' => $product_id,
-                    'user_id' => auth()->id(),
-                ]);
-                $this->dispatch('message',[
-                    'text' => 'Zboží bylo úspěšně přidáno do seznamu přání',
-                    'type' => 'success',
-                    'status' => '200',
-                ]);
-            }
-        }else{
-            $this->dispatch('message',[
-                'text' => 'Pro přidání zboží do seznamu přání se musíte přihlásit',
-                'type' => 'error',
-                'status' => '404',
-            ]);
 
-            return redirect('admin/login');
-        }
+        dd(session()->get('cart'));
+//        if (auth()->check()) {
+//            $wishList = WishList::where('product_id', $product_id)->where('user_id', auth()->id())->first();
+//            if ($wishList) {
+//                $this->dispatch('message',[
+//                    'text' => 'Zboží již bylo přidáno do seznamu přání',
+//                    'type' => 'error',
+//                    'status' => '404',
+//                ]);
+//            } else {
+//                WishList::create([
+//                    'product_id' => $product_id,
+//                    'user_id' => auth()->id(),
+//                ]);
+//                $this->dispatch('message',[
+//                    'text' => 'Zboží bylo úspěšně přidáno do seznamu přání',
+//                    'type' => 'success',
+//                    'status' => '200',
+//                ]);
+//            }
+//        }else{
+//            $this->dispatch('message',[
+//                'text' => 'Pro přidání zboží do seznamu přání se musíte přihlásit',
+//                'type' => 'error',
+//                'status' => '404',
+//            ]);
+//
+//            return redirect('admin/login');
+//        }
     }
 
     public function render()

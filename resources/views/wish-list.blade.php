@@ -3,5 +3,5 @@
 
 @section('content')
     <!-- page-title -->
-    @livewire('frontend.pages.home')
+   @livewire('frontend.pages.wish-list')
 @endsection

@@ -67,7 +67,7 @@
                                 <div class="tf-product-info-buy-button">
                                     <form class="">
                                         <a href="javascript:void(0);" wire:click="addProductToCart()" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart -&nbsp;</span><span class="tf-qty-price total-price">{{number_format($product->standard_price,0,',',' ').' '.$product->currency}}</span></a>
-                                        <a href="javascript:void(0);" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
+                                        <a href="javascript:void(0);" wire:click="addToWishList({{$product->id}})" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
                                             <span class="icon icon-heart"></span>
                                             <span class="tooltip">Add to Wishlist</span>
                                             <span class="icon icon-delete"></span>

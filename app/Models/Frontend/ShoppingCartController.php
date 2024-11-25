@@ -20,7 +20,7 @@ class ShoppingCartController extends Model
 
     public function product()
     {
-        return $this->belongsTo(Wishlist::class);
+        return $this->belongsTo(WishlistModel::class);
     }
 
     public function image(): BelongsTo

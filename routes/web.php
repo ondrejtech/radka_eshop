@@ -16,8 +16,6 @@ Route::fallback(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('product-details/{id}', [\App\Http\Controllers\Frontend\ProductDetailController::class,'productDetail'])->name('product-details');
-Route::get('/shopping-cart/id=1', [ShoppingCartController::class, 'shoppingCart'])->name('shopping-cart');
-Route::get('/wish-list', [WishListController::class, 'wishList'])->name('wish-list');
 Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->name('shopping-cart');
-Route::get('/wish-list', [WishListController::class, 'wishList'])->name('wish-list');
+Route::get('wish-list', [WishListController::class, 'wishList'])->name('wish-list');
 

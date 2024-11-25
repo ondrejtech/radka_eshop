@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Frontend\Product;
 use App\Models\Frontend\Wishlist;
 use App\Models\Frontend\ProductImages;
+use http\Env\Response;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -18,14 +20,20 @@ class ProductSeeder extends Seeder
 
         $json = json_encode($xmlObject);
         $xml = json_decode($json, true);
-
+//        dd($xml);
         if (isset($xml['SHOPITEM']) && count($xml['SHOPITEM']) > 0) {
             foreach ($xml['SHOPITEM'] as $key => $value) {
-                echo $value['NAME'] . '<br>';
-                Wishlist::create([
+                $price = 0;
+                if(isset($value['PRICE'])){
+                    $price = $value['PRICE'];
+                }
+
+
+                Product::create([
                     'id' => $value['@attributes']['id'] ?? null,
                     'name' => $value['NAME'],
-                    'standard_price' => 100,
+//                    'description' => $value['DESCRIPTION'],
+                    'standard_price' => $price,
                     'currency' => 'CZK',
                     'created_at' => now(),
                     'updated_at' => now(),

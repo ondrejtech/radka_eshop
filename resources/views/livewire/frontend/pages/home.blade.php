@@ -231,7 +231,7 @@
                                             <span class="price">Cena:</span>
                                         </div>
                                         <div class="col-sm-9 text-end">
-                                            <span class="price">{{number_format($product->price,0,',',' ').' '.$product->currency}}</span>
+                                            <span class="price">{{number_format($product->standard_price,0,',',' ').' '.$product->currency}}</span>
                                         </div>
                                     </div>
                                 </div>
