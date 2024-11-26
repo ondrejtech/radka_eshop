@@ -6,6 +6,7 @@ use App\Models\Frontend\Product;
 use App\Models\Frontend\Wishlist;
 use App\Models\Frontend\ProductImages;
 use App\Models\Frontend\ShoppingCartController;
+use App\Models\Frontend\WishListModel;
 use Livewire\Component;
 
 class ProductDetail extends Component
@@ -113,36 +114,20 @@ class ProductDetail extends Component
 
     public function addToWishList($product_id)
     {
-
-        dd(session()->get('cart'));
-//        if (auth()->check()) {
-//            $wishList = WishList::where('product_id', $product_id)->where('user_id', auth()->id())->first();
-//            if ($wishList) {
-//                $this->dispatch('message',[
-//                    'text' => 'Zboží již bylo přidáno do seznamu přání',
-//                    'type' => 'error',
-//                    'status' => '404',
-//                ]);
-//            } else {
-//                WishList::create([
-//                    'product_id' => $product_id,
-//                    'user_id' => auth()->id(),
-//                ]);
-//                $this->dispatch('message',[
-//                    'text' => 'Zboží bylo úspěšně přidáno do seznamu přání',
-//                    'type' => 'success',
-//                    'status' => '200',
-//                ]);
-//            }
-//        }else{
-//            $this->dispatch('message',[
-//                'text' => 'Pro přidání zboží do seznamu přání se musíte přihlásit',
-//                'type' => 'error',
-//                'status' => '404',
-//            ]);
-//
-//            return redirect('admin/login');
-//        }
+        if(auth()->check()) {
+            $userId = auth()->id();
+            WishListModel::updateOrCreate([
+                'product_id' => $product_id,
+                'user_id' => $userId,
+            ]);
+            $this->dispatch('message',[
+                'text' => 'Produkt byl úspěšně přidán do seznamu přání',
+                'type' => 'success',
+                'status' => '200',
+            ]);
+        }else{
+            return redirect('user/login');
+        }
     }
 
     public function render()
