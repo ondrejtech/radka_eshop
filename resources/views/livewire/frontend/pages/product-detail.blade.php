@@ -44,6 +44,9 @@
                                 <div class="tf-product-info-title">
                                     <h5>{{$product->name}}</h5>
                                 </div>
+                                <div class="short-description">
+{{--                                    <span class="short-description-title" style="font-size: 10px !important;"> {!! $product->short_description !!}</span>--}}
+                                </div>
                                 <div class="tf-product-info-price">
                                     <div class="price-on-sale row">
                                         <div class="col-sm-4">
@@ -145,19 +148,19 @@
                     <div class="widget-tabs style-has-border">
                         <ul class="widget-menu-tab">
                             <li class="item-title active">
-                                <span class="inner">Description</span>
+                                <span class="inner">Popis</span>
+                            </li>
+{{--                            <li class="item-title">--}}
+{{--                                <span class="inner">Additional Information</span>--}}
+{{--                            </li>--}}
+                            <li class="item-title">
+                                <span class="inner">Hodnocení</span>
                             </li>
                             <li class="item-title">
-                                <span class="inner">Additional Information</span>
+                                <span class="inner">Doprava</span>
                             </li>
                             <li class="item-title">
-                                <span class="inner">Review</span>
-                            </li>
-                            <li class="item-title">
-                                <span class="inner">Shipping</span>
-                            </li>
-                            <li class="item-title">
-                                <span class="inner">Return Policies</span>
+                                <span class="inner">Obchodní podmínky</span>
                             </li>
                         </ul>
                         <div class="widget-content-tab">
@@ -166,75 +169,26 @@
                                     <p class="mb_30">
                                         {!! $product->description !!}
                                     </p>
-                                    <div class="tf-product-des-demo">
-                                        <div class="right">
-                                            <h3 class="fs-16 fw-5">Features</h3>
-                                            <ul>
-                                                <li>Front button placket</li>
-                                                <li> Adjustable sleeve tabs</li>
-                                                <li>Babaton embroidered crest at placket and hem</li>
-                                            </ul>
-                                            <h3 class="fs-16 fw-5">Materials Care</h3>
-                                            <ul class="mb-0">
-                                                <li>Content: 100% LENZING™ ECOVERO™ Viscose</li>
-                                                <li>Care: Hand wash</li>
-                                                <li>Imported</li>
-                                            </ul>
-                                        </div>
-                                        <div class="left">
-                                            <h3 class="fs-16 fw-5">Materials Care</h3>
-                                            <div class="d-flex gap-10 mb_15 align-items-center">
-                                                <div class="icon">
-                                                    <i class="icon-machine"></i>
-                                                </div>
-                                                <span>Machine wash max. 30ºC. Short spin.</span>
-                                            </div>
-                                            <div class="d-flex gap-10 mb_15 align-items-center">
-                                                <div class="icon">
-                                                    <i class="icon-iron"></i>
-                                                </div>
-                                                <span>Iron maximum 110ºC.</span>
-                                            </div>
-                                            <div class="d-flex gap-10 mb_15 align-items-center">
-                                                <div class="icon">
-                                                    <i class="icon-bleach"></i>
-                                                </div>
-                                                <span>Do not bleach/bleach.</span>
-                                            </div>
-                                            <div class="d-flex gap-10 mb_15 align-items-center">
-                                                <div class="icon">
-                                                    <i class="icon-dry-clean"></i>
-                                                </div>
-                                                <span>Do not dry clean.</span>
-                                            </div>
-                                            <div class="d-flex gap-10 align-items-center">
-                                                <div class="icon">
-                                                    <i class="icon-tumble-dry"></i>
-                                                </div>
-                                                <span>Tumble dry, medium hear.</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="widget-content-inner">
-                                <table class="tf-pr-attrs">
-                                    <tbody>
-                                    <tr class="tf-attr-pa-color">
-                                        <th class="tf-attr-label">Color</th>
-                                        <td class="tf-attr-value">
-                                            <p>White, Pink, Black</p>
-                                        </td>
-                                    </tr>
-                                    <tr class="tf-attr-pa-size">
-                                        <th class="tf-attr-label">Size</th>
-                                        <td class="tf-attr-value">
-                                            <p>S, M, L, XL</p>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+{{--                            <div class="widget-content-inner">--}}
+{{--                                <table class="tf-pr-attrs">--}}
+{{--                                    <tbody>--}}
+{{--                                    <tr class="tf-attr-pa-color">--}}
+{{--                                        <th class="tf-attr-label">Color</th>--}}
+{{--                                        <td class="tf-attr-value">--}}
+{{--                                            <p>White, Pink, Black</p>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    <tr class="tf-attr-pa-size">--}}
+{{--                                        <th class="tf-attr-label">Size</th>--}}
+{{--                                        <td class="tf-attr-value">--}}
+{{--                                            <p>S, M, L, XL</p>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                    </tbody>--}}
+{{--                                </table>--}}
+{{--                            </div>--}}
                             <div class="widget-content-inner">
                                 <div class="tab-reviews write-cancel-review-wrap">
                                     <div class="tab-reviews-heading">

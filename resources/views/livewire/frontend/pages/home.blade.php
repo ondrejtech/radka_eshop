@@ -74,11 +74,9 @@
                         </div>
                         <div id="categories" class="collapse show">
                             <ul class="list-categoris current-scrollbar mb_36">
-                                <li class="cate-item current"><a href="#"><span>Fashion</span>&nbsp;<span>(31)</span></a></li>
-                                <li class="cate-item"><a href="#"><span>Men</span>&nbsp;<span>(9)</span></a></li>
-                                <li class="cate-item"><a href="#"><span>Women</span>&nbsp;<span>(23)</span></a></li>
-                                <li class="cate-item"><a href="#"><span>Denim</span>&nbsp;<span>(20)</span></a></li>
-                                <li class="cate-item"><a href="#"><span>Dress</span>&nbsp;<span>(23)</span></a></li>
+                                @foreach($categories as $category)
+                                    <li class="cate-item current" vire:wire:click="selectCategory({{$category->category_code}})"><a href="{{route('category',$category->category_code)}}"><span>{{$category->name}}</span></a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

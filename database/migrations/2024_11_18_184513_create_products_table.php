@@ -18,6 +18,9 @@ return new class extends Migration
             $table->decimal('standard_price', 10, 2)->nullable();
             $table->integer('stock_amount')->default(0);
             $table->string('image_name')->nullable();
+            $table->text('description')->nullable();
+            $table->text('short_description')->nullable();
+            $table->foreignId('category_code')->nullable()->constrained('categories', 'category_code')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -32,7 +32,6 @@ class ProductSeeder extends Seeder
                 Product::create([
                     'id' => $value['@attributes']['id'] ?? null,
                     'name' => $value['NAME'],
-//                    'description' => $value['DESCRIPTION'],
                     'standard_price' => $price,
                     'currency' => 'CZK',
                     'created_at' => now(),

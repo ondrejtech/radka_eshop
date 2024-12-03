@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Livewire\Frontend\Pages;
+namespace App\Livewire\Frontend\Category;
+
 
 use App\Models\Category\Category;
 use App\Models\Frontend\Product;
-use App\Models\Frontend\ProductImages;
-use App\Models\Frontend\Wishlist;
-use App\Models\Frontend\WishListModel;
 use Livewire\Component;
 
-class Home extends Component
+class Categories extends Component
 {
-    public $products, $categories;
+    public $products, $categories, $id;
 
     public function mount()
     {
-        $this->products = Product::with('images')->limit(12)->get();
+        $id = request()->route('id');
+        $this->products = Product::with('images')
+            ->where('category_code', $id)->get();
+
         $this->categories = Category::all();
     }
 
@@ -36,12 +37,11 @@ class Home extends Component
             return redirect('user/login');
         }
     }
-
     public function render()
     {
-        return view('livewire.frontend.pages.home',[
-            'products' => $this->products,
-            'categories' => $this->categories,
-        ]);
+        return view('livewire.frontend.category.category', [
+                'products' => $this->products,
+                'categories' => $this->categories
+            ]);
     }
 }

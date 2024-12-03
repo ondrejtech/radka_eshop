@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('price', 10, 2);
             $table->decimal('total', 10, 2);
+            $table->foreignId('transport_id')->nullable()->constrained('transports')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,7 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-//        Schema::disableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('shopping_cart_controllers');
     }
 };

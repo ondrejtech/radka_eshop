@@ -2,8 +2,10 @@
 
 namespace App\Models\Frontend;
 
+use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
@@ -116,5 +118,10 @@ class Product extends Model
     public function shoppingCart(): HasMany
     {
         return $this->hasMany(ShoppingCartController::class, 'product_id');
+    }
+
+    public function categories(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_code');
     }
 }
