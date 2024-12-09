@@ -169,7 +169,7 @@
                                     </label>
                                 </div>
                                 <div class="cart-checkout-btn">
-                                    <a href="" class="tf-btn w-100 btn-fill animate-hover-btn radius-3 justify-content-center">
+                                    <a href="{{route('checkout')}}" class="tf-btn w-100 btn-fill animate-hover-btn radius-3 justify-content-center">
                                         <span>Check out</span>
                                     </a>
                                 </div>
@@ -243,7 +243,7 @@
                                     <tr class="tf-cart-item file-delete">
                                         <td class="tf-cart-item_product">
                                             <a href="{{ route('product-details', $cart->product->id) }}" class="img-box">
-                                                <img src="{{ $cart->image->URL }}" alt="{{ $cart->product->name }}">
+                                                <img src="{{ $cart->images->URL }}" alt="{{ $cart->product->name }}">
                                             </a>
                                             <div class="cart-info">
                                                 <a href="{{ route('product-details', $cart->product->id)  }}" class="cart-title link">
@@ -390,7 +390,7 @@
                                     </label>
                                 </div>
                                 <div class="cart-checkout-btn">
-                                    <a href="" class="tf-btn w-100 btn-fill animate-hover-btn radius-3 justify-content-center">
+                                    <a href="{{route('checkout')}}" class="tf-btn w-100 btn-fill animate-hover-btn radius-3 justify-content-center">
                                         <span>Check out</span>
                                     </a>
                                 </div>

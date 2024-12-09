@@ -22,3 +22,5 @@ Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->n
 Route::get('wish-list', [WishListController::class, 'wishList'])->name('wish-list');
 Route::get('category/{id}',[CategoryController::class,'viewCategory'])->name('category');
 Route::get('xml',[TestController::class,'xml'])->name('xml');
+Route::get('checkout',[\App\Http\Controllers\Payment\CheckoutController::class,'index'])->name('checkout');
+Route::get('checkout/success',[\App\Http\Controllers\Payment\SuccessController::class,'success'])->name('success');

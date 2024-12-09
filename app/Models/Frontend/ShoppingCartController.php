@@ -20,10 +20,10 @@ class ShoppingCartController extends Model
 
     public function product()
     {
-        return $this->belongsTo(WishlistModel::class);
+        return $this->belongsTo(Product::class);
     }
 
-    public function image(): BelongsTo
+    public function images(): BelongsTo
     {
         return $this->belongsTo(ProductImages::class, 'product_id', 'product_id');
     }

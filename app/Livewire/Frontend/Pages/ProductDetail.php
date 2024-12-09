@@ -91,6 +91,7 @@ class ProductDetail extends Component
                 $cart[$foundKey]['name'] = $this->products->name;
                 $cart[$foundKey]['quantity'] += $this->quantity;
                 $cart[$foundKey]['total'] = $cart[$foundKey]['quantity'] * $this->products->standard_price;
+                $cart[$foundKey]['image'] = $this->products->images->first()->URL;
             } else {
                 // Pokud produkt neexistuje v košíku, přidejte nový
                 $cart[] = [
@@ -99,6 +100,7 @@ class ProductDetail extends Component
                     'quantity' => $this->quantity,
                     'price' => $this->products->standard_price,
                     'total' => $this->quantity * $this->products->standard_price,
+                    'image' => $this->products->images->first()->URL,
                 ];
             }
 
