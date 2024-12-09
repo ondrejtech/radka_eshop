@@ -24,3 +24,4 @@ Route::get('category/{id}',[CategoryController::class,'viewCategory'])->name('ca
 Route::get('xml',[TestController::class,'xml'])->name('xml');
 Route::get('checkout',[\App\Http\Controllers\Payment\CheckoutController::class,'index'])->name('checkout');
 Route::get('checkout/success',[\App\Http\Controllers\Payment\SuccessController::class,'success'])->name('success');
+Route::get('view-pdf/{record}',[\App\Http\Controllers\PDFController::class,'viewPDF'])->name('view-pdf');

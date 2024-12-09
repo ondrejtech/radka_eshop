@@ -2,8 +2,12 @@
 
 namespace App\Models\Payment;
 
+use App\Models\Frontend\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Stripe\InvoiceItem;
+
 
 class Invoice extends Model
 {
@@ -28,4 +32,8 @@ class Invoice extends Model
         'country',
     ];
 
+    public function items()
+    {
+        return $this->hasMany(InvoiceItems::class);
+    }
 }
