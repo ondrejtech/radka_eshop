@@ -4,6 +4,7 @@ namespace App\Livewire\Payment;
 
 use App\Models\Frontend\ShoppingCartController;
 use App\Models\Payment\Invoice;
+use App\Models\Payment\InvoiceItems;
 use Livewire\Component;
 use Stripe\Checkout\Session;
 use Stripe\Stripe as transfer;
@@ -81,20 +82,33 @@ class Checkout extends Component
         }
 
         if($session->mode === 'payment'){
-            Invoice::create([
-                'use_id' => $id,
-                'invoice_number' => $session->id,
-                'amount_subtotal' => $session->amount_subtotal / 100,
-                'created' => $session->created,
-                'currency' => $session->currency,
-                'status' => $session->mode,
-                'name' => $this->first_name.' '.$this->last_name,
-                'email' => $this->email,
-                'phone' => $this->phone,
-                'address' => $this->address,
-                'town' => $this->town,
-                'country' => $this->country,
-            ]);
+            $invoice = Invoice::create([
+                    'use_id' => $id,
+                    'invoice_number' => $session->id,
+                    'amount_subtotal' => $session->amount_subtotal / 100,
+                    'created' => $session->created,
+                    'currency' => $session->currency,
+                    'status' => $session->mode,
+                    'name' => $this->first_name.' '.$this->last_name,
+                    'email' => $this->email,
+                    'phone' => $this->phone,
+                    'address' => $this->address,
+                    'town' => $this->town,
+                    'country' => $this->country,
+                ]);
+
+            foreach ($this->products as $cartItem) {
+                InvoiceItems::create([
+                    'invoice_id' => $invoice->id,
+                    'product_id' => $cartItem->product_id, // ID produktu
+                    'quantity' => $cartItem->quantity, // Množství
+                    'total' => $cartItem->total, // Celková cena
+                    'discount' => 0, // Sleva
+                    'tax' => 21, // Daň
+                ]);
+            }
+
+            session()->forget('cart');
         }
 
             // Přesměrování na Stripe Checkout
