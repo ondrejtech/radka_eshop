@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('image_name')->nullable();
             $table->text('description')->nullable();
             $table->text('short_description')->nullable();
-            $table->foreignId('category_code')->nullable()->constrained('categories', 'category_code')->cascadeOnDelete();
-            $table->timestamps();
+            $table->integer('category_code');
+            $table->timestamps();  // Sloupce created_at a updated_at
         });
     }
 

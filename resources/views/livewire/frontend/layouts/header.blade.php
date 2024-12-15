@@ -88,128 +88,32 @@
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 @foreach($category as $item)
                                     <li class="menu-item">
-                                        <a href="{{route('category',$item->category_code)}}" class="item-link">{{preg_replace('/>.*$/', '', $item->name)}}
+                                        <a wire:click="subcategory({{$item->category_code}})"  class="item-link">{{preg_replace('/>.*$/', '', $item->name)}}
 {{--                                            <i class="icon icon-arrow-down"></i>--}}
                                         </a>
-{{--                                        <div class="sub-menu mega-menu">--}}
-{{--                                            <div class="container">--}}
-{{--                                                <div class="row-demo">--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="{{route('home')}}">--}}
-{{--                                                            <div class="demo-image position-relative">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-01.jpg')}}" src="{{asset('assets/images/demo/home-01.jpg')}}" alt="home-01">--}}
-{{--                                                                <div class="demo-label">--}}
-{{--                                                                    <span class="demo-new">New</span>--}}
-{{--                                                                    <span>Trend</span>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 01</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-multi-brand.html">--}}
-{{--                                                            <div class="demo-image position-relative">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-multi-brand.jpg')}}" src="{{asset('assets/images/demo/home-multi-brand.jpg')}}" alt="home-multi-brand">--}}
-{{--                                                                <div class="demo-label">--}}
-{{--                                                                    <span class="demo-new">New</span>--}}
-{{--                                                                    <span class="demo-hot">Hot</span>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Multi Brand</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-02.html">--}}
-{{--                                                            <div class="demo-image position-relative">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-02.jpg')}}" src="{{asset('assets/images/demo/home-02.jpg')}}" alt="home-02">--}}
-{{--                                                                <div class="demo-label">--}}
-{{--                                                                    <span class="demo-hot">Hot</span>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 02</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-03.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-03.jpg')}}" src="{{asset('assets/images/demo/home-03.jpg')}}" alt="home-03">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 03</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-04.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-04.jpg')}}" src="{{asset('assets/images/demo/home-04.jpg')}}" alt="home-04">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 04</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-05.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-05.jpg')}}" src="{{asset('assets/images/demo/home-05.jpg')}}" alt="home-05">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 05</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-06.html">--}}
-{{--                                                            <div class="demo-image position-relative">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-06.jpg')}}" src="{{asset('assets/images/demo/home-06.jpg')}}" alt="home-06">--}}
-{{--                                                                <div class="demo-label">--}}
-{{--                                                                    <span class="demo-new">New</span>--}}
-{{--                                                                </div>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 06</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-07.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-07.jpg')}}" src="{{asset('assets/images/demo/home-07.jpg')}}" alt="home-07">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 07</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-08.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-08.jpg')}}" src="{{asset('assets/images/demo/home-08.jpg')}}" alt="home-08">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Fashion 08</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-skincare.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-skincare.jpg')}}" src="{{asset('assets/images/demo/home-skincare.jpg')}}" alt="home-skincare">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Skincare</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-headphone.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-headphone.jpg')}}" src="{{asset('assets/images/demo/home-headphone.jpg')}}" alt="home-headphone">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Headphone</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="demo-item">--}}
-{{--                                                        <a href="home-giftcard.html">--}}
-{{--                                                            <div class="demo-image">--}}
-{{--                                                                <img class="lazyload" data-src="{{asset('assets/images/demo/home-giftcard.jpg')}}" src="{{asset('assets/images/demo/home-giftcard.jpg')}}" alt="home-gift-card">--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="demo-name">Home Gift Card</span>--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
+                                        <div class="sub-menu mega-menu">
+                                            <div class="container">
+                                                <div class="row-demo">
+                                                    @foreach($subcategory as $item)
+                                                        <div class="demo-item">
+                                                            <a href="{{route('home')}}">
+                                                                <div class="demo-image position-relative">
+                                                                    <img class="lazyload" data-src="{{asset('assets/images/demo/home-01.jpg')}}" src="{{asset('assets/images/demo/home-01.jpg')}}" alt="home-01">
+                                                                    <div class="demo-label">
+                                                                        <span class="demo-new">New</span>
+                                                                        <span>Trend</span>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="demo-name">Home Fashion 01</span>
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
 {{--                                                <div class="text-center view-all-demo">--}}
 {{--                                                    <a href="#modalDemo" data-bs-toggle="modal" class="tf-btn btn-xl btn-fill radius-3 animate-hover-btn fw-6"><span>View all demos (34+)</span><i class="icon icon-arrow-right"></i></a>--}}
 {{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                            </div>
+                                        </div>
                                     </li>
                                 @endforeach
                             </ul>

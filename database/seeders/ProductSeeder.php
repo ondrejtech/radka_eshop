@@ -29,14 +29,14 @@ class ProductSeeder extends Seeder
                 }
 
 
-                Product::create([
-                    'id' => $value['@attributes']['id'] ?? null,
-                    'name' => $value['NAME'],
-                    'standard_price' => $price,
-                    'currency' => 'CZK',
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
+//                Product::create([
+//                    'id' => $value['@attributes']['id'] ?? null,
+//                    'name' => $value['NAME'],
+//                    'standard_price' => $price,
+//                    'currency' => 'CZK',
+//                    'created_at' => now(),
+//                    'updated_at' => now(),
+//                ]);
 
 
             }
